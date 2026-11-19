@@ -541,13 +541,6 @@ void efetuar_sorteio(Banco *banco) {
         soma_pesos += pesos[i];
     }
 
-    printf("\n=== SORTEIO FIBONACCI (TOP %d COM TITULOS DE CAPITALIZACAO) ===\n", QTD_FINALISTAS_SORTEIO);
-    for (int i = 0; i < QTD_FINALISTAS_SORTEIO; i++) {
-        Carteira *c = &banco->clientes[elegiveis[i]];
-        printf("  %d lugar: %s (%04d-02) | Saldo Total: R$ %.2f | Peso Fibonacci: %d/%d\n",
-               i + 1, c->cliente, c->numero, calcular_saldo_total_cliente(c), pesos[i], soma_pesos);
-    }
-
     int sorteado = rand() % soma_pesos;
     int acumulado = 0;
     int indice_vencedor = elegiveis[0];
